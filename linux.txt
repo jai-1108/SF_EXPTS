@@ -1,0 +1,152 @@
+cat file1 : this will just display the contents of file1  on the terminal
+cat file1 >> file2 : this will add the contents of the file1 to the end of file2
+cat file1 file2 > new file : it will concatentate the file1 and 2 and add its contents to new file
+
+
+1:      ps aux --sort=-%cpu | head -11
+ps = process status (displays information about current running processes)
+aux = a: all processes(not just by current user) u: user oriented x: includes background processes also
+--sort : option for command ps
+-%cpu : '-' means descending, %cpu on basis of cpu percentage used
+| : pipeline used to connect multiple commands together
+head -11 : pipeline and display top 10 processes including header line
+
+2. ps aux --sort=-%mem | head -n 11
+
+3. 
+echo "Current user: $(whoami)"
+echo "Logname: $(logname)
+
+4.
+echo "Current shell: $SHELL"
+echo "Home directory: $HOME"
+echo "Operating system type: $(uname -s)"
+echo "Current path setting: $PATH"
+echo "Current working directory: $(pwd)"
+
+5.
+$ cat /etc/os-release : it is a is a standard file that is present on most Linux distributions, and contains information about the operating system distribution, version, and release.
+or 
+$ lsb_release -a : -a (for all), lsb stands for linux standard base
+$ uname -r : -r(release)
+
+6. first we will create a file
+cat >> file.txt (this means there was no file.txt, we created it and now we will enter text in this file in multiple lines)
+ctrl + D (to stop writing)
+cut -c 1-15 file.txt
+
+7.
+cut -b 3-7 hi.txt (cuts the files (columns of files) based on byte positions
+or
+if you have a file like tirth, 20, hi
+				himanshi, 22, hello
+then use : $cut -d',' -f1,2 data.txt
+or we can also do cut -f1,2 and use 'space' as a delimiter
+
+8. sort -f file.txt (-f stands for ignore case or fold to lower case)
+file.txt  : apple    sorted file.txt - apple
+			Banana					Banana
+			Orange					kiwi
+			kiwi						Orange
+according to ASCII, capital comes before lowercase while ascending order, so if its case sensitive, Banana, Orange would come first
+but here linux sees every text as lowercase
+
+9.
+ls -d */
+*/ = pattern specifies that only directories should be matched and displayed. It matches directories ending with a slash ("/"), effectively filtering out regular files and other non-directory entries.
+
+10.
+suppose you have file.txt and you wanna move it to home/user/docs
+cp file.txt /home/user/docs
+
+
+11.
+mv file.txt /path/to/destination
+
+12.
+rm -rf directory (remove forcefully)
+removes directories without additional permission
+rm -i directory 
+removes directory with permission
+
+
+13.
+who | awk '{print $1}' | sort -u
+
+awk '{print $1}' -  used to extract and print the first field (column) from each line of input.
+sort -u, sorts based on usernames
+
+14.
+cat file.txt file1.txt > final.txt
+if final.txt doesnt exist, it will be created, if it exists it will be overwritten
+cat stands for concatenate
+
+15.
+chmod +x file.txt
++x = adds executable permission to all categories (user, group, and others).
+chmod a-w file.txt
+remove write permission from all
+
+16.
+tail -10 file.txt
+
+17.
+
+find /downloads/tirth/SF -type f
+f stands for files. here we specified that we are looking for files only
+
+18.
+cat ap*
+* stands for any character
+it will display content of files having names starting with ap
+
+19.
+mv aaa aaa.$(whoami)
+mv is used for moving or renaming files
+
+20.
+grep 'picture' file.txt
+grep will scan the lines in the file containing 'picture' and will print those lines
+
+21.
+grep -i rebecca\|Rebecca file.txt
+-i = case insensitive
+\| = OR condition in linux
+
+22.
+grep '^b..k$' file.txt
+^ = start'
+.. = any two character
+$ = end
+
+23.
+grep -v 'example' file.txt
+-v = inverts condition
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
